@@ -32,7 +32,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 	 
 	  http.csrf().disable()
-	  .authorizeRequests().antMatchers("/login","/api/users","/providers/**","/role/add").permitAll()
+	  .authorizeRequests().antMatchers("/login","/api/users","/providers/list").permitAll()
 	  .anyRequest().authenticated().and().sessionManagement()
 	  .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	  http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
